@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - Dr. Galvez Dentistry</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f8fb; /* Default to light mode background */
+            color: #333;
+        }
+
+        header {
+            background: #007acc; /* Default light mode color */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .nav-links, .mode-switch {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .nav-links a, .mode-switch button {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .mode-switch button:hover {
+            color: #ffdd57;
+        }
+
+        .mode-switch {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .mode-switch button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #007acc; /* Default color */
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-group button {
+            background-color: #007acc; /* Default button color */
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #005b99; /* Hover color */
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #007acc; /* Default color */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #005b99; /* Secondary color */
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #333;
+            color: #f4f8fb;
+        }
+
+        .dark-mode header {
+            background: #222;
+        }
+
+        .dark-mode .form-container {
+            background: #444;
+            border: 1px solid #555;
+        }
+
+        .dark-mode .form-group input, .dark-mode .form-group textarea {
+            border: 1px solid #555;
+            background: #666;
+            color: #f4f8fb;
+        }
+
+        .dark-mode .form-group button {
+            background-color: #444;
+            color: #f4f8fb;
+        }
+
+        .dark-mode footer {
+            background: #222;
+            border-top: 5px solid #444;
+        }
+
+        /* Custom mode styles */
+        .custom-mode {
+            background-color: #e0f7fa;
+            color: #007acc;
+        }
+
+        .custom-mode header {
+            background: #007acc;
+        }
+
+        .custom-mode .form-container {
+            background: #b3e5fc;
+            border: 1px solid #81d4fa;
+        }
+
+        .custom-mode .form-group input, .custom-mode .form-group textarea {
+            border: 1px solid #81d4fa;
+            background: #e1f5fe;
+            color: #007acc;
+        }
+
+        .custom-mode .form-group button {
+            background-color: #007acc;
+            color: #fff;
+        }
+
+        .custom-mode footer {
+            background: #007acc;
+            border-top: 5px solid #81d4fa;
+        }
+
+        /* Tooth Arrow */
+        .tooth-arrow {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #007acc;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .tooth-arrow:hover {
+            transform: scale(1.1);
+        }
+
+        .tooth-arrow::before {
+            content: '🦷';
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .mode-switch {
+                flex-direction: column;
+                align-items: flex-start;
+                top: 10px;
+                right: 10px;
+                gap: 10px;
+            }
+
+            .mode-switch button {
+                font-size: 14px;
+            }
+
+            .nav-links a, .mode-switch button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dr. Galvez Dentistry</h1>
+        <div class="mode-switch">
+            <button id="light-mode">Light Mode</button>
+            <button id="dark-mode">Dark Mode</button>
+            <button id="custom-mode">Custom Mode</button>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>Book an Appointment</h2>
+        <form action="thank_you.html" method="post">
+            <div class="form-group">
+                <label for="appointment-type">Appointment Type:</label>
+                <select id="appointment-type" name="appointment-type" required>
+                    <option value="">Select Appointment Type</option>
+                    <option value="checkup">Check-up</option>
+                    <option value="emergency">Emergency Visit</option>
+                    <option value="cosmetic">Cosmetic Consultation</option>
+                    <option value="online">Online Consultation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Information:</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Dr. Galvez Dentistry | All Rights Reserved</p>
+    </footer>
+
+    <!-- Tooth Arrow -->
+    <div class="tooth-arrow"></div>
+
+    <script>
+        // Mode switching
+        const lightModeBtn = document.getElementById('light-mode');
+        const darkModeBtn = document.getElementById('dark-mode');
+        const customModeBtn = document.getElementById('custom-mode');
+
+        lightModeBtn.addEventListener('click', () => {
+            document.body.className = '';
+            document.body.classList.add('light-mode');
+        });
+
+        darkModeBtn.addEventListener('click', () => {
+            document.body.className = '';
+            document.body.classList.add('dark-mode');
+        });
+
+        customModeBtn.addEventListener('click', () => {
+            document.body.className = '';
+            document.body.classList.add('custom-mode');
+        });
+    </script>
+</body>
+</html>

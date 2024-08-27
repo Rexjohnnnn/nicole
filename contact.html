@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Smile Dentistry - Contact</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            box-sizing: border-box; /* Ensures padding and borders are included in the width and height calculations */
+        }
+
+        header {
+            background-color: #007acc;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        nav {
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffdd57;
+        }
+
+        .content {
+            padding: 50px 20px;
+            text-align: center;
+            flex: 1; /* Allows content to grow and fill the remaining space */
+            box-sizing: border-box; /* Ensures padding is included in the height */
+        }
+
+        .content h2 {
+            color: #007acc;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #007acc;
+            font-size: 20px; /* Adjusted size */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #005b99;
+        }
+
+        footer {
+            background-color: #007acc; /* Same color as header */
+            color: #fff; /* Text color to match the home page */
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #005b99;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Flex container to make sure the content takes up full height */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the container takes up at least the full viewport height */
+        }
+
+        @media (max-width: 768px) {
+            .content h2 {
+                font-size: 2em;
+            }
+
+            .content p {
+                font-size: 1em;
+            }
+
+            .contact-info {
+                padding: 0 20px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a {
+                font-size: 18px; /* Adjusted size for smaller screens */
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Me and Dr. Galvez</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section class="content">
+            <p>If you have any questions or would like to get in touch, feel free to reach out through our social media channels below. We look forward to hearing from you!</p>
+            
+            <div class="contact-info">
+                <p>Follow us on social media:</p>
+                <div class="social-links">
+                    <!-- Nicole's Social Media Links -->
+                    <a href="https://www.facebook.com/ivxxvxx" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/xocooolee/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- Rexjohn's Social Media Links -->
+                    <a href="https://www.facebook.com/rexjohn.derayal.71" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rexjohn.szn/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Dr. Smile Dentistry | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
